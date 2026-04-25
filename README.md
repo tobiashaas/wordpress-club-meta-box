@@ -45,4 +45,6 @@ Vor `wp search-replace` **Backup** anlegen und echte Schlüssel in `wp_options` 
 
 ## Lizenz
 
-Nutzung im Vereinskontext; Anpassung und Wiederverwendung im Rahmen eurer rechtlichen Möglichkeiten. Es gibt kein besonderes Open-Source-Lizenzmodell für dieses Repo, sofern nicht später ergänzt.
+Dieses Repository steht in der **Public Domain** ([The Unlicense](LICENSE)): **Jeder** darf die Inhalte **kostenlos** nutzen, **verändern**, weitergeben und daraus abgeleitete Projekte bauen – **ohne Bedingungen** (kommerziell und nicht kommerziell). Siehe die Datei [`LICENSE`](LICENSE) für den rechtlichen Wortlaut (englisch).
+
+*Hinweis:* Unabhängig davon bleibt ihr für die **Nutzung von WordPress, Meta Box, Themes und Drittbibliotheken** jeweils an deren Lizenzen gebunden.
