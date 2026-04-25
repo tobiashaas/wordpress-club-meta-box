@@ -1,0 +1,48 @@
+{
+    "$schema": "https://schemas.metabox.io/field-group.json",
+    "autosave": false,
+    "default_hidden": false,
+    "fields": [
+        {
+            "name": "Partnerlogo",
+            "id": "partner_logo",
+            "type": "single_image",
+            "force_delete": false,
+            "required": false,
+            "clone": false,
+            "clone_empty_start": false,
+            "hide_from_rest": false
+        },
+        {
+            "name": "Partner-Webseite",
+            "id": "website_url",
+            "type": "url",
+            "required": false,
+            "disabled": false,
+            "readonly": false,
+            "clone": false,
+            "clone_empty_start": false,
+            "hide_from_rest": false
+        },
+        {
+            "name": "Partnertyp",
+            "id": "partner_type",
+            "type": "taxonomy",
+            "taxonomy": [
+                "partner_type"
+            ],
+            "field_type": "checkbox_tree",
+            "add_new": true,
+            "remove_default": true,
+            "required": true,
+            "admin_columns": "after title",
+            "hide_from_rest": false
+        }
+    ],
+    "id": "partners",
+    "modified": 1777147298,
+    "post_types": [
+        "sponsor"
+    ],
+    "title": "Partner"
+}

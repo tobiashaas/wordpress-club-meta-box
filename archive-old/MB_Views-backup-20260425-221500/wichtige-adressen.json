@@ -1,0 +1,18 @@
+{
+    "post_type": "mb-views",
+    "post_title": "Wichtige Adressen",
+    "post_date": "2025-01-05 14:03:36",
+    "post_status": "publish",
+    "post_content": "{{ post.vorname }}<h2>Offizielle Vereinsadresse</h2>\r\n<h3>{{ site.title }}</h3>\r\n{% set group = attribute( site, 'club-einstellungen' ) %}\r\n{{ group.offizielle_vereinsadresse.adresse_offiziell }}\r\n<p>Telefon: \r\n {% set group = attribute( site, 'club-einstellungen' ) %}\r\n <a href=\"tel:+49{{ group.offizielle_vereinsadresse.telefon_url }}\">\r\n  +49 {{ group.offizielle_vereinsadresse.telefon_nice }}\r\n </a>\r\n</p>\r\n<p>Email: \r\n {% set group = attribute( site, 'club-einstellungen' ) %}\r\n <a href=\"mailto:{{ group.offizielle_vereinsadresse.email_adresse }}\">\r\n  {{ group.offizielle_vereinsadresse.email_adresse }}\r\n </a>\r\n</p>\r\n\r\n<!-- Vereinsheim Query -->\r\n<h3>Vereinsheim</h3>\r\n{% set group = attribute( site, 'club-einstellungen' ) %}\r\n{{ group.vereinsheim.adresse_vereinsheim }}\r\n<p>Telefon: \r\n {% set group = attribute( site, 'club-einstellungen' ) %}\r\n <a href=\"tel:+49{{ group.vereinsheim.telefon_url }}\">\r\n  +49 {{ group.vereinsheim.telefon_nice }}\r\n </a>\r\n</p>\r\n\r\n<!-- Vorstandsposition Query -->\r\n{% set terms = ['jugendleiter', 'mitgliederverwaltung', 'spielausschuss'] %}\r\n\r\n{% for term_slug in terms %}\r\n <h3>{{ term_slug | title }}</h3>\r\n \r\n {% set mit_vorstandsposition = mb.get_posts({\r\n  post_type: 'mitglieder',\r\n  tax_query: [\r\n   {\r\n    taxonomy: 'vorstandsposition',\r\n    field: 'slug', \r\n    terms: term_slug\r\n   }\r\n  ]\r\n }) %}\r\n \r\n {% if mit_vorstandsposition %}\r\n  {% for post in mit_vorstandsposition %}\r\n   <p><strong>{{ post.vorname }} {{ post.nachname }}</strong></p>\r\n   \r\n   {% if post.vorstand_adresse %}\r\n    <p>{{ post.vorstand_adresse }}</p>\r\n   {% endif %}\r\n   \r\n   {% if post.email_vorstand %}\r\n    <p>Email:\r\n     <a href=\"mailto:{{ post.email_vorstand }}\">\r\n      {{ post.email_vorstand }}\r\n     </a>\r\n    </p>\r\n   {% endif %}\r\n   \r\n   {% if post.telefon_vorstand %}\r\n    <p>Telefon: {{ post.telefon_vorstand }}</p>\r\n   {% endif %}\r\n   \r\n   {% if post.mobil_vorstand %}\r\n    <p>Mobil: {{ post.mobil_vorstand }}</p>\r\n   {% endif %}\r\n  {% endfor %}\r\n {% else %}\r\n  <p>Kein Mitglied gefunden für diese Position.</p>\r\n {% endif %}\r\n{% endfor %}",
+    "post_excerpt": "",
+    "post_content_filtered": "",
+    "settings": {
+        "code": "",
+        "mode": "layout",
+        "type": "custom",
+        "position": "after_content",
+        "action_type": "site",
+        "action_priority": "10",
+        "singular_locations": ""
+    }
+}

@@ -1,0 +1,164 @@
+{
+    "$schema": "https://schemas.metabox.io/field-group.json",
+    "fields": [
+        {
+            "name": "Team 1",
+            "id": "team_1_matches",
+            "type": "group",
+            "collapsible": true,
+            "save_state": true,
+            "group_title": "{match_datetime_team_1} - {league_team_1} | {home_team_1} - {away_team_1} ",
+            "clone": true,
+            "sort_clone": true,
+            "clone_default": false,
+            "clone_as_multiple": false,
+            "clone_empty_start": true,
+            "max_clone": 50,
+            "add_button": "weiteren Spieltag hinzufügen",
+            "hide_from_rest": false,
+            "fields": [
+                {
+                    "name": "Nächstes Spiel am",
+                    "id": "match_datetime_team_1",
+                    "type": "datetime",
+                    "save_format": "d-m-Y H:i",
+                    "timestamp": true,
+                    "inline": false,
+                    "required": true,
+                    "disabled": false,
+                    "readonly": false,
+                    "js_options": {
+                        "dateFormat": "dd-mm-yy"
+                    },
+                    "clone": false,
+                    "clone_empty_start": false,
+                    "hide_from_rest": false
+                },
+                {
+                    "name": "Liga",
+                    "id": "league_team_1",
+                    "type": "select",
+                    "options": {
+                        "Landesleague": "Landesleague",
+                        "Bezirksleague": "Bezirksleague",
+                        "Bezirkspokal": "Bezirkspokal",
+                        "Verbands-Pokal": "Verbands-Pokal",
+                        "Schwarzwaldpokal": "Schwarzwaldpokal",
+                        "Gemeindepokal": "Gemeindepokal",
+                        "Freundschaftsspiel": "Freundschaftsspiel"
+                    },
+                    "std": "Landesleague",
+                    "multiple": false,
+                    "select_all_none": false,
+                    "required": true,
+                    "disabled": false,
+                    "readonly": false,
+                    "clone": false,
+                    "clone_empty_start": false,
+                    "hide_from_rest": false
+                },
+                {
+                    "name": "Heimteams",
+                    "id": "home_team_1",
+                    "type": "post",
+                    "post_type": [
+                        "clubs"
+                    ],
+                    "field_type": "select_advanced",
+                    "add_new": false,
+                    "multiple": false,
+                    "parent": false,
+                    "required": true,
+                    "placeholder": "Heimteams auswählen...",
+                    "clone": false,
+                    "clone_empty_start": false,
+                    "columns": 6,
+                    "hide_from_rest": false
+                },
+                {
+                    "name": "Auswärtsteams",
+                    "id": "away_team_1",
+                    "type": "post",
+                    "post_type": [
+                        "clubs"
+                    ],
+                    "field_type": "select_advanced",
+                    "add_new": false,
+                    "multiple": false,
+                    "parent": false,
+                    "required": true,
+                    "placeholder": "Auswärtsteams auswählen...",
+                    "clone": false,
+                    "clone_empty_start": false,
+                    "columns": 6,
+                    "hide_from_rest": false
+                },
+                {
+                    "name": "Abgesagt",
+                    "id": "abgesagt",
+                    "type": "switch",
+                    "label_description": "Wurde das Spiel abgesagt?",
+                    "style": "rounded",
+                    "on_label": "Ja",
+                    "off_label": "Nein",
+                    "std": false,
+                    "required": false,
+                    "clone": false,
+                    "clone_empty_start": false,
+                    "hide_from_rest": false
+                },
+                {
+                    "name": "Ergebnis Heim Erste",
+                    "id": "home_score_team_1",
+                    "type": "number",
+                    "required": false,
+                    "disabled": false,
+                    "readonly": false,
+                    "clone": false,
+                    "clone_empty_start": false,
+                    "columns": 6,
+                    "hide_from_rest": false,
+                    "visible": {
+                        "when": [
+                            [
+                                "abgesagt",
+                                "=",
+                                0
+                            ]
+                        ],
+                        "relation": "or"
+                    }
+                },
+                {
+                    "name": "Ergebnis Auswärts Erste",
+                    "id": "away_score_team_1",
+                    "type": "number",
+                    "required": false,
+                    "disabled": false,
+                    "readonly": false,
+                    "clone": false,
+                    "clone_empty_start": false,
+                    "columns": 6,
+                    "hide_from_rest": false,
+                    "visible": {
+                        "when": [
+                            [
+                                "abgesagt",
+                                "=",
+                                0
+                            ]
+                        ],
+                        "relation": "or"
+                    }
+                }
+            ]
+        }
+    ],
+    "id": "schedule-team-1",
+    "modified": 1777146727,
+    "settings_pages": [
+        "club-einstellungen"
+    ],
+    "tab": "Spielplan Erste",
+    "title": "Spielplan Team 1"
+}

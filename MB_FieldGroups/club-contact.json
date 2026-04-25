@@ -1,0 +1,272 @@
+{
+    "$schema": "https://schemas.metabox.io/field-group.json",
+    "custom_settings": {
+        "tab_style": {
+            "id": "tab_style",
+            "key": "tab_style",
+            "value": "default"
+        },
+        "tab_default_active": {
+            "id": "tab_default_active",
+            "key": "tab_default_active",
+            "value": ""
+        },
+        "tab_remember": {
+            "id": "tab_remember",
+            "key": "tab_remember",
+            "value": false
+        }
+    },
+    "fields": [
+        {
+            "name": "Club-Branding",
+            "id": "logo_group",
+            "type": "group",
+            "collapsible": false,
+            "clone": false,
+            "clone_empty_start": false,
+            "columns": 2,
+            "hide_from_rest": false,
+            "fields": [
+                {
+                    "name": "Logo",
+                    "id": "logo",
+                    "type": "single_image",
+                    "force_delete": false,
+                    "required": false,
+                    "clone": false,
+                    "clone_empty_start": false,
+                    "hide_from_rest": false
+                }
+            ],
+            "tab": "club_tab"
+        },
+        {
+            "name": "Offizielle Club-Adresse",
+            "id": "official_address",
+            "type": "group",
+            "collapsible": false,
+            "clone": false,
+            "clone_empty_start": false,
+            "columns": 5,
+            "hide_from_rest": false,
+            "fields": [
+                {
+                    "name": "Adresse",
+                    "id": "official_address_text",
+                    "type": "wysiwyg",
+                    "raw": false,
+                    "options": {
+                        "media_buttons": false,
+                        "textarea_rows": 4
+                    },
+                    "required": false,
+                    "clone": false,
+                    "clone_empty_start": false,
+                    "hide_from_rest": false,
+                    "class": "mb-heading",
+                    "limit_type": "character"
+                },
+                {
+                    "name": "E-Mail-Adresse",
+                    "id": "email_adresse",
+                    "type": "email",
+                    "required": false,
+                    "disabled": false,
+                    "readonly": false,
+                    "prepend": "mailto:",
+                    "clone": false,
+                    "clone_empty_start": false,
+                    "hide_from_rest": false
+                },
+                {
+                    "name": "Telefon (Anzeige)",
+                    "id": "telefon_nice",
+                    "type": "text",
+                    "required": false,
+                    "disabled": false,
+                    "readonly": false,
+                    "prepend": "'+49",
+                    "clone": false,
+                    "clone_empty_start": false,
+                    "hide_from_rest": false,
+                    "limit_type": "character"
+                },
+                {
+                    "name": "Telefon (Link)",
+                    "id": "telefon_url",
+                    "type": "number",
+                    "required": false,
+                    "disabled": false,
+                    "readonly": false,
+                    "prepend": "'+49",
+                    "clone": false,
+                    "clone_empty_start": false,
+                    "hide_from_rest": false
+                }
+            ],
+            "tab": "club_tab"
+        },
+        {
+            "name": "Clubheim",
+            "id": "clubhouse",
+            "type": "group",
+            "collapsible": false,
+            "clone": false,
+            "clone_empty_start": false,
+            "columns": 5,
+            "hide_from_rest": false,
+            "fields": [
+                {
+                    "name": "Adresse",
+                    "id": "adresse_clubhouse",
+                    "type": "wysiwyg",
+                    "raw": false,
+                    "options": {
+                        "media_buttons": false,
+                        "textarea_rows": 4
+                    },
+                    "required": false,
+                    "clone": false,
+                    "clone_empty_start": false,
+                    "hide_from_rest": false,
+                    "class": "mb-heading",
+                    "limit_type": "character"
+                },
+                {
+                    "name": "Telefon (Anzeige)",
+                    "id": "telefon_nice",
+                    "type": "text",
+                    "required": false,
+                    "disabled": false,
+                    "readonly": false,
+                    "prepend": "'+49",
+                    "clone": false,
+                    "clone_empty_start": false,
+                    "hide_from_rest": false,
+                    "limit_type": "character"
+                },
+                {
+                    "name": "Telefon (Link)",
+                    "id": "telefon_url",
+                    "type": "number",
+                    "required": false,
+                    "disabled": false,
+                    "readonly": false,
+                    "prepend": "'+49",
+                    "clone": false,
+                    "clone_empty_start": false,
+                    "hide_from_rest": false
+                }
+            ],
+            "tab": "club_tab"
+        },
+        {
+            "name": "Soziale Medien",
+            "id": "social_links",
+            "type": "group",
+            "collapsible": false,
+            "clone": false,
+            "clone_empty_start": false,
+            "hide_from_rest": false,
+            "fields": [
+                {
+                    "name": "Facebook",
+                    "id": "facebook",
+                    "type": "url",
+                    "desc": "Geben Sie hier den Link zu Ihrem Facebook Profil ein.",
+                    "required": false,
+                    "disabled": false,
+                    "readonly": false,
+                    "clone": false,
+                    "clone_empty_start": false,
+                    "columns": 6,
+                    "hide_from_rest": false
+                },
+                {
+                    "name": "Instagram",
+                    "id": "instagram",
+                    "type": "url",
+                    "desc": "Geben Sie hier den Link zu Ihrem Instagram Profil ein.",
+                    "required": false,
+                    "disabled": false,
+                    "readonly": false,
+                    "clone": false,
+                    "clone_empty_start": false,
+                    "columns": 6,
+                    "hide_from_rest": false
+                },
+                {
+                    "name": "X (Twitter)",
+                    "id": "social_x",
+                    "type": "url",
+                    "desc": "Geben Sie hier den Link zu Ihrem X Profil ein.",
+                    "required": false,
+                    "disabled": false,
+                    "readonly": false,
+                    "clone": false,
+                    "clone_empty_start": false,
+                    "columns": 6,
+                    "hide_from_rest": false
+                },
+                {
+                    "name": "YouTube",
+                    "id": "youtube",
+                    "type": "url",
+                    "desc": "Geben Sie hier den Link zu Ihrem YouTube Profil ein.",
+                    "required": false,
+                    "disabled": false,
+                    "readonly": false,
+                    "clone": false,
+                    "clone_empty_start": false,
+                    "columns": 6,
+                    "hide_from_rest": false
+                },
+                {
+                    "name": "TikTok",
+                    "id": "tiktok",
+                    "type": "url",
+                    "desc": "Geben Sie hier den Link zu Ihrem TikTok Profil ein.",
+                    "required": false,
+                    "disabled": false,
+                    "readonly": false,
+                    "clone": false,
+                    "clone_empty_start": false,
+                    "columns": 6,
+                    "hide_from_rest": false
+                },
+                {
+                    "name": "WhatsApp",
+                    "id": "whatsapp",
+                    "type": "url",
+                    "desc": "Generieren Sie hier einen Link für WhatsApp -> https://w.app/",
+                    "required": false,
+                    "disabled": false,
+                    "readonly": false,
+                    "clone": false,
+                    "clone_empty_start": false,
+                    "columns": 6,
+                    "hide_from_rest": false
+                }
+            ],
+            "tab": "socialmedia_tab"
+        }
+    ],
+    "id": "club_contact",
+    "modified": 1777147303,
+    "settings_pages": [
+        "club-einstellungen"
+    ],
+    "tab": "Kontakt",
+    "tabs": {
+        "club_tab": {
+            "label": "Club",
+            "icon": ""
+        },
+        "socialmedia_tab": {
+            "label": "Soziale Medien",
+            "icon": ""
+        }
+    },
+    "title": "Kontakt"
+}

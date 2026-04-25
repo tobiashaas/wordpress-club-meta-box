@@ -1,0 +1,18 @@
+{
+    "post_type": "mb-views",
+    "post_title": "Partial - Club Team Logo",
+    "post_date": "2026-04-25 23:00:00",
+    "post_status": "publish",
+    "post_content": "{#\r\n  =============================================================================\r\n  TEMPLATE-PART: Club-Logo (nur in anderen Views per include nutzen)\r\n  Meta Box: {{ include('partial-club-team-logo') }} — Context wie Eltern-View\r\n  Doku: https://docs.metabox.io/tutorials/create-reusable-template-parts\r\n  =============================================================================\r\n  VOR include setzen: team_post = Club-Post (z. B. home, away)\r\n  Optional: logo_extra_class, logo_max_width, logo_max_height, logo_loading,\r\n            logo_decoding, logo_fetchpriority\r\n  =============================================================================\r\n#}\r\n{% set thumb = null %}\r\n{% if team_post is defined and team_post.thumbnail is defined %}\r\n  {% if team_post.thumbnail.medium_large is defined and team_post.thumbnail.medium_large.url %}\r\n    {% set thumb = team_post.thumbnail.medium_large %}\r\n  {% elseif team_post.thumbnail.medium is defined and team_post.thumbnail.medium.url %}\r\n    {% set thumb = team_post.thumbnail.medium %}\r\n  {% endif %}\r\n{% endif %}\r\n{% if thumb and thumb.url %}\r\n<img class=\"club-team-logo{{ logo_extra_class is defined and logo_extra_class ? ' ' ~ logo_extra_class : '' }}\" src=\"{{ thumb.url }}\" alt=\"{{ thumb.alt|default('') }}\" title=\"{{ team_post.title|default('') }}\"{% if logo_max_width is defined and logo_max_width %} width=\"{{ logo_max_width }}\"{% endif %}{% if logo_max_height is defined and logo_max_height %} height=\"{{ logo_max_height }}\"{% endif %} loading=\"{{ logo_loading|default('lazy') }}\" decoding=\"{{ logo_decoding|default('async') }}\"{% if logo_fetchpriority is defined and logo_fetchpriority %} fetchpriority=\"{{ logo_fetchpriority }}\"{% endif %}>\r\n{% endif %}\r\n",
+    "post_excerpt": "",
+    "post_content_filtered": "",
+    "settings": {
+        "code": "",
+        "mode": "layout",
+        "type": "custom",
+        "position": "after_content",
+        "action_type": "site",
+        "action_priority": "10",
+        "singular_locations": ""
+    }
+}

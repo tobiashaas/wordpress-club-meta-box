@@ -1,0 +1,21 @@
+{
+    "$schema": "https://schemas.metabox.io/settings-page.json",
+    "capability": "read",
+    "columns": 1,
+    "customizer": false,
+    "customizer_only": false,
+    "icon_font_awesome": "fa-regular fa-star",
+    "icon_url": "fa-regular fa-star",
+    "id": "club-einstellungen",
+    "menu_title": "Club-Einstellungen",
+    "message": "Daten wurden erfolgreich abgespeichert!",
+    "modified": 1777147488,
+    "network": false,
+    "option_name": "club-einstellungen",
+    "position": 2.13789,
+    "submit_button": "Speichern",
+    "tabs": {
+        "Kontakt": "Kontakt",
+        "Spielplan": "Spielplan"
+    }
+}

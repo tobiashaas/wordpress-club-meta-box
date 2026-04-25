@@ -1,0 +1,73 @@
+{
+    "post_title": "Partner (Sponsoren)",
+    "settings": {
+        "slug": "sponsor",
+        "function_name": "your_prefix_register_post_type",
+        "text_domain": "your-textdomain",
+        "label": "Partner",
+        "labels": {
+            "name": "Partner",
+            "singular_name": "Partner",
+            "add_new": "Hinzufügen",
+            "add_new_item": "Neuen Partner hinzufügen",
+            "edit_item": "Partner bearbeiten",
+            "new_item": "Neu",
+            "view_item": "Partner ansehen",
+            "view_items": "Partner ansehen",
+            "search_items": "Partner suchen",
+            "not_found": "Keine Partner gefunden.",
+            "not_found_in_trash": "Keine Partner im Papierkorb.",
+            "parent_item_colon": "Übergeordneter Partner:",
+            "all_items": "Alle Partner",
+            "archives": "Partner – Archiv",
+            "attributes": "Attribute",
+            "insert_into_item": "In Partner einfügen",
+            "uploaded_to_this_item": "Zu diesem Partner hochgeladen",
+            "menu_name": "Partner",
+            "filter_items_list": "Partner filtern",
+            "filter_by_date": "",
+            "items_list_navigation": "Listen-Navigation",
+            "items_list": "Liste",
+            "item_published": "Partner veröffentlicht.",
+            "item_published_privately": "Partner privat veröffentlicht.",
+            "item_reverted_to_draft": "Partner als Entwurf gespeichert.",
+            "item_scheduled": "Partner geplant.",
+            "item_updated": "Partner aktualisiert."
+        },
+        "description": "Sponsoren und Partnerlogos, gruppiert nach Partnertyp (z. B. im Footer oder auf einer Partner-Seite).",
+        "public": true,
+        "hierarchical": false,
+        "exclude_from_search": false,
+        "publicly_queryable": true,
+        "show_ui": true,
+        "show_in_menu": true,
+        "show_in_nav_menus": true,
+        "show_in_admin_bar": true,
+        "show_in_rest": true,
+        "rest_base": "",
+        "menu_position": 4.07079,
+        "icon_type": "font_awesome",
+        "icon": "dashicons-id-alt",
+        "capability_type": "post",
+        "supports": [
+            "title"
+        ],
+        "taxonomies": [
+            "partner_type"
+        ],
+        "has_archive": true,
+        "archive_slug": "",
+        "rewrite": {
+            "slug": "",
+            "with_front": false
+        },
+        "query_var": true,
+        "can_export": true,
+        "delete_with_user": false,
+        "_slug_changed": true,
+        "font_awesome": "fa-solid fa-file-contract"
+    },
+    "post_date": "2021-08-04 20:06:14",
+    "post_status": "publish",
+    "post_type": "mb-post-type"
+}

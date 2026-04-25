@@ -1,0 +1,218 @@
+{
+    "$schema": "https://schemas.metabox.io/field-group.json",
+    "autosave": false,
+    "context": "after_title",
+    "default_hidden": false,
+    "fields": [
+        {
+            "name": "Vorname",
+            "id": "vorname",
+            "type": "text",
+            "desc": "Wird automatisch befüllt durch eingabe eines Titels",
+            "required": false,
+            "disabled": false,
+            "readonly": true,
+            "clone": false,
+            "clone_empty_start": false,
+            "columns": 6,
+            "hide_from_rest": false,
+            "limit_type": "character"
+        },
+        {
+            "name": "Nachname",
+            "id": "nachname",
+            "type": "text",
+            "required": false,
+            "disabled": false,
+            "readonly": true,
+            "clone": false,
+            "clone_empty_start": false,
+            "columns": 6,
+            "hide_from_rest": false,
+            "limit_type": "character"
+        },
+        {
+            "name": "Aktiver Spieler?",
+            "id": "spieler_switch",
+            "type": "switch",
+            "style": "rounded",
+            "on_label": "Ja",
+            "off_label": "Nein",
+            "std": false,
+            "required": false,
+            "clone": false,
+            "clone_empty_start": false,
+            "hide_from_rest": false
+        },
+        {
+            "name": "Spielerfoto",
+            "id": "spielerfoto",
+            "type": "single_image",
+            "label_description": "Hier kannst du ein Bild des Spielers hochladen. Das Foto wird auf der Website angezeigt, damit jeder den Spieler visuell erkennen kann.",
+            "force_delete": false,
+            "required": false,
+            "clone": false,
+            "clone_empty_start": false,
+            "hide_from_rest": false,
+            "visible": {
+                "when": [
+                    [
+                        "spieler_switch",
+                        "=",
+                        1
+                    ]
+                ],
+                "relation": "or"
+            }
+        },
+        {
+            "name": "Spielerposition",
+            "id": "position",
+            "type": "taxonomy",
+            "taxonomy": [
+                "spielerposition"
+            ],
+            "field_type": "radio_list",
+            "add_new": false,
+            "remove_default": true,
+            "required": true,
+            "hide_from_rest": false,
+            "visible": {
+                "when": [
+                    [
+                        "spieler_switch",
+                        "=",
+                        1
+                    ]
+                ],
+                "relation": "or"
+            }
+        },
+        {
+            "type": "divider",
+            "hide_from_rest": false
+        },
+        {
+            "name": "Im Vorstand?",
+            "id": "vorstand_switch",
+            "type": "switch",
+            "style": "rounded",
+            "on_label": "Ja",
+            "off_label": "Nein",
+            "std": false,
+            "required": false,
+            "clone": false,
+            "clone_empty_start": false,
+            "hide_from_rest": false
+        },
+        {
+            "name": "Vorstandsfoto",
+            "id": "vorstandsfoto",
+            "type": "single_image",
+            "label_description": "Hier kannst du ein Bild des Vorstandsmitglieds hochladen. Das Foto wird auf der Website angezeigt, damit jeder das Mitglied visuell erkennen kann.",
+            "force_delete": false,
+            "required": false,
+            "clone": false,
+            "clone_empty_start": false,
+            "columns": 4,
+            "hide_from_rest": false,
+            "visible": {
+                "when": [
+                    [
+                        "vorstand_switch",
+                        "=",
+                        1
+                    ]
+                ],
+                "relation": "or"
+            }
+        },
+        {
+            "name": "Vorstandsposition",
+            "id": "vorstandsposition",
+            "type": "taxonomy",
+            "taxonomy": [
+                "vorstandsposition"
+            ],
+            "field_type": "checkbox_list",
+            "add_new": false,
+            "remove_default": true,
+            "select_all_none": false,
+            "required": true,
+            "columns": 4,
+            "hide_from_rest": false,
+            "visible": {
+                "when": [
+                    [
+                        "vorstand_switch",
+                        "=",
+                        1
+                    ]
+                ],
+                "relation": "or"
+            }
+        },
+        {
+            "name": "Adresse",
+            "id": "vorstand_adresse",
+            "type": "wysiwyg",
+            "label_description": "Hier gibst du die vollständige Adresse der Person ein, z.B. des Präsidenten des Fußballvereins.",
+            "desc": "Notwendig für Präsident, 1. Vorsitzender und eventuell Jugendleiter, Mitgliederverwaltung und Spielausschuss",
+            "raw": false,
+            "options": {
+                "media_buttons": false,
+                "textarea_rows": 4
+            },
+            "required": false,
+            "clone": false,
+            "clone_empty_start": false,
+            "columns": 4,
+            "hide_from_rest": false,
+            "limit_type": "character"
+        },
+        {
+            "name": "Email",
+            "id": "email_vorstand",
+            "type": "email",
+            "required": false,
+            "disabled": false,
+            "readonly": false,
+            "clone": false,
+            "clone_empty_start": false,
+            "columns": 4,
+            "hide_from_rest": false
+        },
+        {
+            "name": "Telefon",
+            "id": "telefon_vorstand",
+            "type": "text",
+            "required": false,
+            "disabled": false,
+            "readonly": false,
+            "clone": false,
+            "clone_empty_start": false,
+            "columns": 4,
+            "hide_from_rest": false,
+            "limit_type": "character"
+        },
+        {
+            "name": "Mobil",
+            "id": "mobil_vorstand",
+            "type": "text",
+            "required": false,
+            "disabled": false,
+            "readonly": false,
+            "clone": false,
+            "clone_empty_start": false,
+            "columns": 4,
+            "hide_from_rest": false,
+            "limit_type": "character"
+        }
+    ],
+    "id": "spieler",
+    "modified": 1777147301,
+    "post_types": [
+        "mitglieder"
+    ],
+    "title": "Mitglieder"
+}

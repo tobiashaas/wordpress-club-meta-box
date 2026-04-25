@@ -1,0 +1,18 @@
+{
+    "post_type": "mb-views",
+    "post_title": "Nächstes Spiel (Hero)",
+    "post_date": "2021-08-02 23:59:30",
+    "post_status": "publish",
+    "post_content": "{% set group = attribute(site, 'club-einstellungen') %}\r\n{% set erste_mannschaft = attribute(group, 'erste_mannschaft') %}\r\n{% set erste_mannschaft = (erste_mannschaft|length > 1) \r\n              ? (erste_mannschaft|sort((a, b) => a.date_nextmatch_erste.timestamp <=> b.date_nextmatch_erste.timestamp)\r\n                |filter(v => v.date_nextmatch_erste.timestamp > mb.microtime(true)))\r\n              : erste_mannschaft %}\r\n\r\n{% if erste_mannschaft|length > 0 %}\r\n  {% set erste_mannschaft = erste_mannschaft|first %}\r\n  <p class=\"club-next\">Nächstes Spiel</p>\r\n  <div class=\"club-next-match\">\r\n    <div class=\"club-team-block\">\r\n      <p class=\"club-team-name\">{{ erste_mannschaft.heimmannschaft_erste.title }}</p>  \r\n      {{ _self.logo(erste_mannschaft.heimmannschaft_erste) }}\r\n    </div>\r\n    <span class=\"club-vs-nextgame\">vs</span>    \r\n    <div class=\"club-team-block\">\r\n      <p class=\"club-team-name\">{{ erste_mannschaft.auswaerts_erste.title }}</p>  \r\n      {{ _self.logo(erste_mannschaft.auswaerts_erste) }}\r\n    </div>\r\n  </div>\r\n  <div class=\"club-match-data\">\r\n    <div class=\"club-match-data__inner\">\r\n      <p>// {{ erste_mannschaft.Liga_erste.label }}</p>\r\n      <p>// {{ erste_mannschaft.date_nextmatch_erste.timestamp|date(\"d.m.Y\") }} um {{ erste_mannschaft.date_nextmatch_erste.timestamp|date(\"H:i\") }} Uhr</p>\r\n      <p>// {{ mb.rwmb_meta('adresse_sportplatz', null, erste_mannschaft.heimmannschaft_erste.ID) }}</p>\r\n    </div>\r\n  </div>\r\n{% else %}\r\n  <div class=\"club-match-data\">\r\n    <div class=\"club-match-data__inner\">\r\n      <p style=\"text-align:center\">Aktuell sind keine Spiele geplant ...</p>\r\n    </div>\r\n  </div>\r\n{% endif %}\r\n\r\n{% macro logo(post, size = 'medium') %}\r\n  <img class=\"club-team-logo\" src=\"{{ post.thumbnail[size].url }}\" alt=\"{{ post.alt }}\" title=\"{{ post.title }}\">\r\n{% endmacro %}",
+    "post_excerpt": "",
+    "post_content_filtered": "",
+    "settings": {
+        "code": "",
+        "mode": "layout",
+        "type": "custom",
+        "position": "after_content",
+        "action_type": "site",
+        "action_priority": "10",
+        "singular_locations": ""
+    }
+}

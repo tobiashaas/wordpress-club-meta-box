@@ -1,0 +1,61 @@
+{
+    "post_title": "Partnertyp",
+    "settings": {
+        "slug": "partner_type",
+        "types": [
+            "sponsor"
+        ],
+        "function_name": "your_prefix_register_taxonomy",
+        "text_domain": "your-textdomain",
+        "labels": {
+            "name": "Partnertypen",
+            "search_items": "Partnertypen suchen",
+            "popular_items": "Beliebte Partnertypen",
+            "all_items": "Alle Partnertypen",
+            "separate_items_with_commas": "Partnertypen mit Komma trennen",
+            "add_or_remove_items": "Partnertypen hinzufügen oder entfernen",
+            "choose_from_most_used": "Aus den meistgenutzten Partnertypen wählen",
+            "not_found": "Keine Partnertypen gefunden.",
+            "no_terms": "Keine Partnertypen",
+            "items_list_navigation": "Navigation der Partnertypen",
+            "items_list": "Liste der Partnertypen",
+            "most_used": "Meistgenutzt",
+            "back_to_items": "&larr; Zurück zu Partnertypen",
+            "menu_name": "Partnertypen",
+            "singular_name": "Partnertyp",
+            "parent_item": "Übergeordnete Partnertyp",
+            "parent_item_colon": "Übergeordnete Partnertyp:",
+            "edit_item": "Partnertyp bearbeiten",
+            "view_item": "Partnertyp anzeigen",
+            "update_item": "Partnertyp aktualisieren",
+            "add_new_item": "Neue Partnertyp hinzufügen",
+            "new_item_name": "Name der neuen Partnertyp",
+            "filter_by_item": "Nach Partnertyp filtern"
+        },
+        "description": "",
+        "public": true,
+        "publicly_queryable": true,
+        "hierarchical": false,
+        "show_ui": true,
+        "show_in_menu": true,
+        "show_in_nav_menus": true,
+        "meta_box_cb": "post_tags_meta_box",
+        "show_in_rest": true,
+        "rest_base": "",
+        "show_tagcloud": true,
+        "show_in_quick_edit": true,
+        "show_admin_column": false,
+        "rewrite": {
+            "slug": "",
+            "with_front": false,
+            "hierarchical": false
+        },
+        "query_var": true,
+        "sort": false,
+        "label": "Partnertyp",
+        "_slug_changed": true
+    },
+    "post_date": "2024-11-13 13:11:49",
+    "post_status": "publish",
+    "post_type": "mb-taxonomy"
+}

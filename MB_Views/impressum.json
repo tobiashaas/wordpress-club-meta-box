@@ -1,0 +1,18 @@
+{
+    "post_type": "mb-views",
+    "post_title": "Impressum",
+    "post_date": "2025-01-05 15:59:51",
+    "post_status": "publish",
+    "post_content": "<!-- Vorstandsposition Query -->\r\n{% set terms = ['praesident', '1-vorsitzender'] %}\r\n\r\n{% for term_slug in terms %}\r\n {% set terms_found = mb.get_terms({\r\n  taxonomy: 'board_role',\r\n  slug: term_slug\r\n }) %}\r\n \r\n {% if terms_found and terms_found|length > 0 %}\r\n  {% set term = terms_found[0] %}\r\n  <h3>{{ term.name }}:</h3>\r\n  \r\n  {% set mit_board_role = mb.get_posts({\r\n   post_type: 'mitglieder',\r\n   tax_query: [\r\n    {\r\n     taxonomy: 'board_role',\r\n     field: 'slug', \r\n     terms: term.slug\r\n    }\r\n   ]\r\n  }) %}\r\n \r\n  {% if mit_board_role %}\r\n   {% for post in mit_board_role %}\r\n    <p><strong>{{ post.vorname }} {{ post.nachname }}</strong></p>\r\n    \r\n    {% if post.board_address %}\r\n     <p>{{ post.board_address }}</p>\r\n    {% endif %}\r\n    \r\n    {% if post.board_email %}\r\n     <p>E-Mail:\r\n      <a href=\"mailto:{{ post.board_email }}\">\r\n       {{ post.board_email }}\r\n      </a>\r\n     </p>\r\n    {% endif %}\r\n    \r\n    {% if post.board_phone %}\r\n     <p>Telefon: {{ post.board_phone }}</p>\r\n    {% endif %}\r\n    \r\n    {% if post.board_mobile %}\r\n     <p>Mobil: {{ post.board_mobile }}</p>\r\n    {% endif %}\r\n   {% endfor %}\r\n  {% else %}\r\n   <p>Kein Mitglied gefunden für diese Position.</p>\r\n  {% endif %}\r\n {% else %}\r\n  <p>Term '{{ term_slug }}' nicht gefunden.</p>\r\n {% endif %}\r\n{% endfor %}\r\n",
+    "post_excerpt": "",
+    "post_content_filtered": "",
+    "settings": {
+        "code": "",
+        "mode": "layout",
+        "type": "custom",
+        "position": "after_content",
+        "action_type": "site",
+        "action_priority": "10",
+        "singular_locations": ""
+    }
+}

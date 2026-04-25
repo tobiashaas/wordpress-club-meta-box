@@ -1,0 +1,18 @@
+{
+    "post_type": "mb-views",
+    "post_title": "Die Erste - Letzte Spiele",
+    "post_date": "2021-08-20 09:50:03",
+    "post_status": "publish",
+    "post_content": "{% set group = attribute(site, 'club-einstellungen') %}\r\n{% set erste_mannschaft = attribute(group, 'erste_mannschaft') %}\r\n\r\n{% set erste_mannschaft = erste_mannschaft|length >= 1\r\n  ? erste_mannschaft\r\n    |filter(v => v.date_nextmatch_erste.timestamp < mb.microtime(true))\r\n    |sort((a, b) => b.date_nextmatch_erste.timestamp <=> a.date_nextmatch_erste.timestamp)\r\n  : []\r\n%}\r\n\r\n<ul class=\"club-match-list\">\r\n  {% for clone in erste_mannschaft|slice(0, 3) %}\r\n  <li class=\"club-table\">\r\n    <p>{{ clone.Liga_erste.value }} // {{ clone.date_nextmatch_erste.timestamp|date(\"d.m.Y\") }} um {{ clone.date_nextmatch_erste.timestamp|date(\"H:i\") }} Uhr</p>\r\n    <div class=\"club-next-match\">\r\n      <div class=\"club-team-block\">\r\n        <p class=\"club-team-name\">{{ clone.heimmannschaft_erste.title }}</p>\r\n        <img\r\n          src=\"{{ clone.heimmannschaft_erste.thumbnail.medium_large.url }}\"\r\n          width=\"100\"\r\n          height=\"100\"\r\n          alt=\"{{ clone.heimmannschaft_erste.thumbnail.medium_large.alt }}\">\r\n      </div>\r\n\r\n      <span class=\"club-vs-nextgame\">\r\n        {% if clone.abgesagt == 1 %}\r\n          <p class=\"club-canceled\">Abgesagt</p>\r\n        {% else %}\r\n          <p class=\"club-vs-nextgame\">{{ clone.ergebnis_heim_erste }} : {{ clone.ergebnis_auswarts_erste }}</p>\r\n        {% endif %}\r\n      </span>\r\n\r\n      <div class=\"club-team-block\">\r\n        <p class=\"club-team-name\">{{ clone.auswaerts_erste.title }}</p>\r\n        <img\r\n          src=\"{{ clone.auswaerts_erste.thumbnail.medium_large.url }}\"\r\n          width=\"100\"\r\n          height=\"100\"\r\n          alt=\"{{ clone.auswaerts_erste.thumbnail.medium_large.alt }}\">\r\n      </div>\r\n    </div>\r\n  </li>\r\n  {% endfor %}\r\n</ul>",
+    "post_excerpt": "",
+    "post_content_filtered": "",
+    "settings": {
+        "code": "",
+        "mode": "layout",
+        "type": "custom",
+        "position": "after_content",
+        "action_type": "site",
+        "action_priority": "10",
+        "singular_locations": ""
+    }
+}

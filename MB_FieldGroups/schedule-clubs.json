@@ -1,0 +1,168 @@
+{
+    "$schema": "https://schemas.metabox.io/field-group.json",
+    "fields": [
+        {
+            "name": "Spieltage",
+            "id": "club_matchdays",
+            "type": "group",
+            "collapsible": true,
+            "save_state": true,
+            "group_title": "{team} | {match_datetime} - {league} | {home_team} - {away_team}",
+            "clone": true,
+            "sort_clone": true,
+            "clone_default": false,
+            "clone_as_multiple": false,
+            "clone_empty_start": true,
+            "max_clone": 200,
+            "add_button": "Spieltag hinzufügen",
+            "hide_from_rest": false,
+            "fields": [
+                {
+                    "name": "Team",
+                    "id": "team",
+                    "type": "select",
+                    "options": {
+                        "erste": "1. Mannschaft",
+                        "zweite": "2. Mannschaft",
+                        "dritte": "3. Mannschaft",
+                        "jugend": "Jugend",
+                        "ah": "Alte Herren (AH)"
+                    },
+                    "multiple": false,
+                    "select_all_none": false,
+                    "required": true,
+                    "clone": false,
+                    "clone_empty_start": false,
+                    "hide_from_rest": false
+                },
+                {
+                    "name": "Nächstes Spiel am",
+                    "id": "match_datetime",
+                    "type": "datetime",
+                    "save_format": "d-m-Y H:i",
+                    "timestamp": true,
+                    "inline": false,
+                    "required": true,
+                    "disabled": false,
+                    "readonly": false,
+                    "js_options": {
+                        "dateFormat": "dd-mm-yy"
+                    },
+                    "clone": false,
+                    "clone_empty_start": false,
+                    "hide_from_rest": false
+                },
+                {
+                    "name": "Liga",
+                    "id": "league",
+                    "type": "text",
+                    "required": true,
+                    "clone": false,
+                    "clone_empty_start": false,
+                    "hide_from_rest": false
+                },
+                {
+                    "name": "Heimmannschaft",
+                    "id": "home_team",
+                    "type": "post",
+                    "post_type": [
+                        "clubs"
+                    ],
+                    "field_type": "select_advanced",
+                    "add_new": false,
+                    "multiple": false,
+                    "parent": false,
+                    "required": true,
+                    "placeholder": "Heimmannschaft auswählen...",
+                    "clone": false,
+                    "clone_empty_start": false,
+                    "columns": 6,
+                    "hide_from_rest": false
+                },
+                {
+                    "name": "Auswärtsmannschaft",
+                    "id": "away_team",
+                    "type": "post",
+                    "post_type": [
+                        "clubs"
+                    ],
+                    "field_type": "select_advanced",
+                    "add_new": false,
+                    "multiple": false,
+                    "parent": false,
+                    "required": true,
+                    "placeholder": "Auswärtsmannschaft auswählen...",
+                    "clone": false,
+                    "clone_empty_start": false,
+                    "columns": 6,
+                    "hide_from_rest": false
+                },
+                {
+                    "name": "Abgesagt",
+                    "id": "abgesagt",
+                    "type": "switch",
+                    "label_description": "Wurde das Spiel abgesagt?",
+                    "style": "rounded",
+                    "on_label": "Ja",
+                    "off_label": "Nein",
+                    "std": false,
+                    "required": false,
+                    "clone": false,
+                    "clone_empty_start": false,
+                    "hide_from_rest": false
+                },
+                {
+                    "name": "Ergebnis Heim",
+                    "id": "home_score",
+                    "type": "number",
+                    "required": false,
+                    "disabled": false,
+                    "readonly": false,
+                    "clone": false,
+                    "clone_empty_start": false,
+                    "columns": 6,
+                    "hide_from_rest": false,
+                    "visible": {
+                        "when": [
+                            [
+                                "abgesagt",
+                                "=",
+                                0
+                            ]
+                        ],
+                        "relation": "or"
+                    }
+                },
+                {
+                    "name": "Ergebnis Auswärts",
+                    "id": "away_score",
+                    "type": "number",
+                    "required": false,
+                    "disabled": false,
+                    "readonly": false,
+                    "clone": false,
+                    "clone_empty_start": false,
+                    "columns": 6,
+                    "hide_from_rest": false,
+                    "visible": {
+                        "when": [
+                            [
+                                "abgesagt",
+                                "=",
+                                0
+                            ]
+                        ],
+                        "relation": "or"
+                    }
+                }
+            ]
+        }
+    ],
+    "id": "schedule-clubs",
+    "modified": 1777146773,
+    "settings_pages": [
+        "club-einstellungen"
+    ],
+    "tab": "Spielplan",
+    "title": "Spielplan"
+}

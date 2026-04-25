@@ -1,0 +1,48 @@
+{
+    "$schema": "https://schemas.metabox.io/field-group.json",
+    "autosave": false,
+    "default_hidden": false,
+    "fields": [
+        {
+            "name": "Sponsoren Logo",
+            "id": "sponsoren_logo",
+            "type": "single_image",
+            "force_delete": false,
+            "required": false,
+            "clone": false,
+            "clone_empty_start": false,
+            "hide_from_rest": false
+        },
+        {
+            "name": "Sponsoren Webseite",
+            "id": "link_webseite",
+            "type": "url",
+            "required": false,
+            "disabled": false,
+            "readonly": false,
+            "clone": false,
+            "clone_empty_start": false,
+            "hide_from_rest": false
+        },
+        {
+            "name": "Sponsorentyp",
+            "id": "sponsorentyp",
+            "type": "taxonomy",
+            "taxonomy": [
+                "Sponsorentyp"
+            ],
+            "field_type": "checkbox_tree",
+            "add_new": true,
+            "remove_default": true,
+            "required": true,
+            "admin_columns": "after title",
+            "hide_from_rest": false
+        }
+    ],
+    "id": "sponsoren",
+    "modified": 1777147298,
+    "post_types": [
+        "sponsor"
+    ],
+    "title": "Sponsoren"
+}

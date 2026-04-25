@@ -1,0 +1,63 @@
+{
+    "post_title": "Vorstandsposition",
+    "settings": {
+        "slug": "board_role",
+        "types": [
+            "mitglieder",
+            "vorstand"
+        ],
+        "function_name": "your_prefix_register_taxonomy",
+        "text_domain": "your-textdomain",
+        "labels": {
+            "name": "Vorstandspositionen",
+            "singular_name": "Vorstandsposition",
+            "menu_name": "Vorstandspositionen",
+            "search_items": "Vorstandspositionen suchen",
+            "popular_items": "Beliebte Vorstandspositionen",
+            "all_items": "Alle Vorstandspositionen",
+            "parent_item": "Übergeordnete Vorstandsposition",
+            "parent_item_colon": "Übergeordnete Vorstandsposition:",
+            "edit_item": "Vorstandsposition bearbeiten",
+            "view_item": "Vorstandsposition anzeigen",
+            "update_item": "Vorstandsposition aktualisieren",
+            "add_new_item": "Neue Vorstandsposition hinzufügen",
+            "new_item_name": "Name der neuen Vorstandsposition",
+            "separate_items_with_commas": "Vorstandspositionen mit Komma trennen",
+            "add_or_remove_items": "Vorstandspositionen hinzufügen oder entfernen",
+            "choose_from_most_used": "Aus den meistgenutzten Vorstandspositionen wählen",
+            "not_found": "Keine Vorstandspositionen gefunden.",
+            "no_terms": "Keine Vorstandspositionen",
+            "filter_by_item": "Nach Vorstandsposition filtern",
+            "items_list_navigation": "Navigation der Vorstandspositionen",
+            "items_list": "Liste der Vorstandspositionen",
+            "most_used": "Meistgenutzt",
+            "back_to_items": "&larr; Zurück zu Vorstandspositionen",
+            "text_domain": "your-textdomain"
+        },
+        "description": "",
+        "public": true,
+        "publicly_queryable": true,
+        "hierarchical": false,
+        "show_ui": true,
+        "show_in_menu": true,
+        "show_in_nav_menus": false,
+        "meta_box_cb": true,
+        "show_in_rest": true,
+        "rest_base": "",
+        "show_tagcloud": false,
+        "show_in_quick_edit": false,
+        "show_admin_column": false,
+        "rewrite": {
+            "slug": "",
+            "with_front": false,
+            "hierarchical": false
+        },
+        "query_var": true,
+        "sort": true,
+        "label": "Vorstandsposition",
+        "_slug_changed": true
+    },
+    "post_date": "2021-08-30 13:56:49",
+    "post_status": "publish",
+    "post_type": "mb-taxonomy"
+}

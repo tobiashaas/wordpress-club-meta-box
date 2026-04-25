@@ -1,0 +1,61 @@
+{
+    "post_title": "Spielerposition",
+    "settings": {
+        "slug": "playerposition",
+        "types": [
+            "mitglieder"
+        ],
+        "function_name": "your_prefix_register_taxonomy",
+        "text_domain": "your-textdomain",
+        "labels": {
+            "name": "Spielerpositionen",
+            "singular_name": "Spielerposition",
+            "menu_name": "Spielerpositionen",
+            "search_items": "Spielerpositionen suchen",
+            "popular_items": "Beliebte Spielerpositionen",
+            "all_items": "Alle Spielerpositionen",
+            "parent_item": "Übergeordnete Spielerposition",
+            "parent_item_colon": "Übergeordnete Spielerposition:",
+            "edit_item": "Spielerposition bearbeiten",
+            "view_item": "Spielerposition anzeigen",
+            "update_item": "Spielerposition aktualisieren",
+            "add_new_item": "Neue Spielerposition hinzufügen",
+            "new_item_name": "Name der neuen Spielerposition",
+            "separate_items_with_commas": "Spielerpositionen mit Komma trennen",
+            "add_or_remove_items": "Spielerpositionen hinzufügen oder entfernen",
+            "choose_from_most_used": "Aus den meistgenutzten Spielerpositionen wählen",
+            "not_found": "Keine Spielerpositionen gefunden.",
+            "no_terms": "Keine Spielerpositionen",
+            "filter_by_item": "Nach Spielerposition filtern",
+            "items_list_navigation": "Navigation der Spielerpositionen",
+            "items_list": "Liste der Spielerpositionen",
+            "most_used": "Meistgenutzt",
+            "back_to_items": "&larr; Zurück zu Spielerpositionen"
+        },
+        "description": "",
+        "public": true,
+        "publicly_queryable": true,
+        "hierarchical": false,
+        "show_ui": true,
+        "show_in_menu": true,
+        "show_in_nav_menus": true,
+        "meta_box_cb": "post_tags_meta_box",
+        "show_in_rest": true,
+        "rest_base": "",
+        "show_tagcloud": true,
+        "show_in_quick_edit": true,
+        "show_admin_column": false,
+        "rewrite": {
+            "slug": "",
+            "with_front": false,
+            "hierarchical": false
+        },
+        "query_var": true,
+        "sort": false,
+        "label": "Spielerposition",
+        "_slug_changed": true
+    },
+    "post_date": "2024-12-31 12:45:16",
+    "post_status": "publish",
+    "post_type": "mb-taxonomy"
+}

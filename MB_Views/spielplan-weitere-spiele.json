@@ -1,0 +1,18 @@
+{
+    "post_type": "mb-views",
+    "post_title": "Spielplan - Weitere Spiele",
+    "post_date": "2026-04-25 22:10:00",
+    "post_status": "publish",
+    "post_content": "{#\r\n  =============================================================================\r\n  SPIELPLAN-VIEW\r\n  - Daten: Club-Einstellungen (Option) → club_matchdays = Liste der Spiele/Termine\r\n  - Filter team_slug: Wert aus dem *aktuellen* Team-Beitrag (post.match_team_key),\r\n    falls der View in einem Singular-Template für Post-Type \"teams\" läuft.\r\n    Sonst Fallback \"erste\" (z. B. Startseite — dann eigenes View-Duplikat mit\r\n    fixem team_slug anlegen oder team_slug im Template hart setzen).\r\n  - Logo-HTML: wiederverwendbarer Part {{ include('partial-club-team-logo') }} siehe\r\n    https://docs.metabox.io/tutorials/create-reusable-template-parts\r\n  - Switch abgesagt: https://docs.metabox.io/fields/switch (1/0, truthy-Prüfung)\r\n  - team_slug \"erste\": Erstes zukünftiges Spiel erscheint im Hero-View; hier offset 1,\r\n    damit dieselbe Partie nicht nochmal in der Liste steht (andere Mannschaften: ab 0).\r\n  =============================================================================\r\n#}\r\n{% set group = attribute(site, 'club-einstellungen') %}\r\n{% set team_slug = (post is defined) ? (attribute(post, 'match_team_key')|default('erste')) : 'erste' %}\r\n\r\n{% set start_offset = (team_slug == 'erste') ? 1 : 0 %}\r\n{% set limit = 3 %}\r\n\r\n{% set all_matches = attribute(group, 'club_matchdays') %}\r\n\r\n{% set matches = all_matches|length >= 1\r\n  ? all_matches\r\n    |filter(v => (attribute(v, 'team').value|default(attribute(v, 'team'))) == team_slug)\r\n    |filter(v => attribute(v, 'match_datetime').timestamp > mb.microtime(true))\r\n    |sort((a, b) => attribute(a, 'match_datetime').timestamp <=> attribute(b, 'match_datetime').timestamp)\r\n  : []\r\n%}\r\n\r\n<ul class=\"club-match-list\">\r\n  {% for clone in matches|slice(start_offset, limit) %}\r\n    {% set home = attribute(clone, 'home_team') %}\r\n    {% set away = attribute(clone, 'away_team') %}\r\n    <li class=\"club-table\">\r\n      <p>{{ clone.league }} // {{ clone.match_datetime.timestamp|date(\"d.m.Y\") }} um {{ clone.match_datetime.timestamp|date(\"H:i\") }} Uhr</p>\r\n      <div class=\"club-next-match\">\r\n        <div class=\"club-team-block\">\r\n          <p class=\"club-team-name\">{{ home.title }}</p>\r\n          {% set team_post = home %}\r\n          {{ include('partial-club-team-logo') }}\r\n        </div>\r\n        <span class=\"club-vs-nextgame\">\r\n          {# Switch: Meta Box 1/0 — https://docs.metabox.io/fields/switch #}\r\n          {% if clone.abgesagt %}<p class=\"club-canceled\">Abgesagt</p>{% else %}<p class=\"club-vs\">vs</p>{% endif %}\r\n        </span>\r\n        <div class=\"club-team-block\">\r\n          <p class=\"club-team-name\">{{ away.title }}</p>\r\n          {% set team_post = away %}\r\n          {{ include('partial-club-team-logo') }}\r\n        </div>\r\n      </div>\r\n    </li>\r\n  {% endfor %}\r\n</ul>\r\n",
+    "post_excerpt": "",
+    "post_content_filtered": "",
+    "settings": {
+        "code": "",
+        "mode": "layout",
+        "type": "custom",
+        "position": "after_content",
+        "action_type": "site",
+        "action_priority": "10",
+        "singular_locations": ""
+    }
+}

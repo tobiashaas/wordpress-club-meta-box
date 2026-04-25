@@ -1,0 +1,166 @@
+{
+    "$schema": "https://schemas.metabox.io/field-group.json",
+    "fields": [
+        {
+            "name": "Team 2",
+            "id": "team_2_matches",
+            "type": "group",
+            "collapsible": true,
+            "default_state": "collapsed",
+            "save_state": true,
+            "group_title": "{match_datetime_team_2} - {league_team_2} | {home_team_2} - {away_team_2} ",
+            "clone": true,
+            "sort_clone": true,
+            "clone_default": false,
+            "clone_as_multiple": false,
+            "clone_empty_start": true,
+            "max_clone": 50,
+            "add_button": "weiteren Spieltag hinzufügen",
+            "hide_from_rest": false,
+            "fields": [
+                {
+                    "name": "Nächstes Spiel am",
+                    "id": "match_datetime_team_2",
+                    "type": "datetime",
+                    "save_format": "d-m-Y H:i",
+                    "timestamp": true,
+                    "inline": false,
+                    "required": false,
+                    "disabled": false,
+                    "readonly": false,
+                    "js_options": {
+                        "dateFormat": "dd-mm-yy"
+                    },
+                    "clone": false,
+                    "clone_empty_start": false,
+                    "hide_from_rest": false
+                },
+                {
+                    "name": "Liga",
+                    "id": "league_team_2",
+                    "type": "select",
+                    "options": {
+                        "Kreisleague B1": "Kreisleague B1",
+                        "Bezirksleague": "Bezirksleague",
+                        "Landesleague": "Landesleague",
+                        "Bezirkspokal": "Bezirkspokal",
+                        "Verbands-Pokal": "Verbands-Pokal",
+                        "Schwarzwaldpokal": "Schwarzwaldpokal",
+                        "Gemeindepokal": "Gemeindepokal",
+                        "Freundschaftsspiel": "Freundschaftsspiel"
+                    },
+                    "std": "Kreisleague B1",
+                    "multiple": false,
+                    "select_all_none": false,
+                    "required": false,
+                    "disabled": false,
+                    "readonly": false,
+                    "clone": false,
+                    "clone_empty_start": false,
+                    "hide_from_rest": false
+                },
+                {
+                    "name": "Heimteams",
+                    "id": "home_team_2",
+                    "type": "post",
+                    "post_type": [
+                        "clubs"
+                    ],
+                    "field_type": "select_advanced",
+                    "add_new": false,
+                    "multiple": false,
+                    "parent": false,
+                    "required": false,
+                    "placeholder": "Heimteams auswählen...",
+                    "clone": false,
+                    "clone_empty_start": false,
+                    "columns": 6,
+                    "hide_from_rest": false
+                },
+                {
+                    "name": "Auswärtsteams",
+                    "id": "away_team_2",
+                    "type": "post",
+                    "post_type": [
+                        "clubs"
+                    ],
+                    "field_type": "select_advanced",
+                    "add_new": false,
+                    "multiple": false,
+                    "parent": false,
+                    "required": false,
+                    "placeholder": "Auswärtsteams auswählen...",
+                    "clone": false,
+                    "clone_empty_start": false,
+                    "columns": 6,
+                    "hide_from_rest": false
+                },
+                {
+                    "name": "Abgesagt",
+                    "id": "abgesagt",
+                    "type": "switch",
+                    "label_description": "Wurde das Spiel abgesagt?",
+                    "style": "rounded",
+                    "on_label": "Ja",
+                    "off_label": "Nein",
+                    "std": false,
+                    "required": false,
+                    "clone": false,
+                    "clone_empty_start": false,
+                    "hide_from_rest": false
+                },
+                {
+                    "name": "Ergebnis Heim Zweite",
+                    "id": "home_score_team_2",
+                    "type": "number",
+                    "required": false,
+                    "disabled": false,
+                    "readonly": false,
+                    "clone": false,
+                    "clone_empty_start": false,
+                    "columns": 6,
+                    "hide_from_rest": false,
+                    "visible": {
+                        "when": [
+                            [
+                                "abgesagt",
+                                "=",
+                                0
+                            ]
+                        ],
+                        "relation": "or"
+                    }
+                },
+                {
+                    "name": "Ergebnis Auswärts Zweite",
+                    "id": "away_score_team_2",
+                    "type": "number",
+                    "required": false,
+                    "disabled": false,
+                    "readonly": false,
+                    "clone": false,
+                    "clone_empty_start": false,
+                    "columns": 6,
+                    "hide_from_rest": false,
+                    "visible": {
+                        "when": [
+                            [
+                                "abgesagt",
+                                "=",
+                                0
+                            ]
+                        ],
+                        "relation": "or"
+                    }
+                }
+            ]
+        }
+    ],
+    "id": "schedule-team-2",
+    "modified": 1777146725,
+    "settings_pages": [
+        "club-einstellungen"
+    ],
+    "tab": "Spielplan Zweite",
+    "title": "Spielplan Team 2"
+}

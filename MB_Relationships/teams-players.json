@@ -1,0 +1,38 @@
+{
+    "$schema": "https://schemas.metabox.io/relationships.json",
+    "delete_data": true,
+    "from": {
+        "object_type": "post",
+        "post_type": "teams",
+        "admin_filter": false,
+        "meta_box": {
+            "title": "Spieler",
+            "context": "normal",
+            "priority": "high",
+            "closed": false
+        },
+        "field": {
+            "placeholder": "Mannschaft auswählen...",
+            "add_new": false
+        }
+    },
+    "id": "teams-players",
+    "menu_title": "Mannschaft Spieler",
+    "modified": 1777147464,
+    "reciprocal": false,
+    "to": {
+        "object_type": "post",
+        "post_type": "mitglieder",
+        "admin_filter": false,
+        "meta_box": {
+            "title": "Spielt in Mannschaft...",
+            "context": "normal",
+            "priority": "high",
+            "closed": false
+        },
+        "field": {
+            "placeholder": "Spieler auswählen...",
+            "add_new": false
+        }
+    }
+}

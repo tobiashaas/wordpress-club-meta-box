@@ -1,0 +1,16 @@
+{
+    "$schema": "https://schemas.metabox.io/field-group.json",
+    "fields": [
+        {
+            "name": "Adresse Sportplatz",
+            "id": "adresse_sportplatz",
+            "type": "text"
+        }
+    ],
+    "id": "vereine",
+    "modified": 1777147300,
+    "post_types": [
+        "vereine"
+    ],
+    "title": "Vereine"
+}

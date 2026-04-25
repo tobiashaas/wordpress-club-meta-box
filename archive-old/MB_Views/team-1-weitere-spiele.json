@@ -1,0 +1,18 @@
+{
+    "post_type": "mb-views",
+    "post_title": "Team 1 - Weitere Spiele",
+    "post_date": "2021-07-31 23:17:42",
+    "post_status": "publish",
+    "post_content": "{# \r\n  Get the settings field using attribute()\r\n#}\r\n{% set group = attribute(site, 'club-einstellungen') %}\r\n{% set team_1_matches = attribute(group, 'team_1_matches') %}\r\n\r\n{#\r\n  Sort and filter: \r\n  - Sort timestamps in ascending order\r\n  - Filter to include only future matches\r\n#}\r\n{% set team_1_matches = team_1_matches|length >= 1 \r\n? team_1_matches\r\n  |sort((a, b) => a.match_datetime_team_1.timestamp <=> b.match_datetime_team_1.timestamp)\r\n  |filter(v => v.match_datetime_team_1.timestamp > mb.microtime(true))\r\n: [] \r\n%}\r\n\r\n{# \r\nRender only items starting from the second entry (skip the first)\r\n#}\r\n<ul class=\"club-match-list\">\r\n  {% for clone in team_1_matches|slice(1, 3) %}\r\n    <li class=\"club-table\">\r\n      <p>{{ clone.league_team_1.value }} // {{ clone.match_datetime_team_1.timestamp|date(\"d.m.Y\") }} um {{ clone.match_datetime_team_1.timestamp|date(\"H:i\") }} Uhr</p>\r\n      <div class=\"club-next-match\">\r\n        <div class=\"club-team-block\">\r\n          <p class=\"club-team-name\">{{ clone.home_team_1.title }}</p>\r\n          <img\r\n            src=\"{{ clone.home_team_1.thumbnail.medium_large.url }}\" \r\n            alt=\"{{ clone.home_team_1.thumbnail.medium_large.alt }}\">           \r\n        </div>\t\t\r\n        {# Check if match is cancelled using the 'abgesagt' field #}\r\n        <span class=\"club-vs-nextgame\">\r\n          {% if clone.abgesagt == 1 %}\r\n            <p class=\"club-canceled\">Abgesagt</p>\r\n          {% else %}\r\n            <p class=\"club-vs\">vs</p>\r\n          {% endif %}\r\n        </span>\r\n        <div class=\"club-team-block\">\r\n          <p class=\"club-team-name\">{{ clone.away_team_1.title }}</p>\r\n          <img \r\n            src=\"{{ clone.away_team_1.thumbnail.medium_large.url }}\" \r\n            alt=\"{{ clone.away_team_1.thumbnail.medium_large.alt }}\">\t\r\n        </div>\t\r\n      </div>\t\t\r\n    </li>\t\r\n  {% endfor %}\r\n</ul>",
+    "post_excerpt": "",
+    "post_content_filtered": "",
+    "settings": {
+        "code": "",
+        "mode": "layout",
+        "type": "custom",
+        "position": "after_content",
+        "action_type": "site",
+        "action_priority": "10",
+        "singular_locations": ""
+    }
+}
