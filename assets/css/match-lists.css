@@ -1,0 +1,200 @@
+/**
+ * MB Views „spielplan-weitere-spiele“ und „spielplan-letzte-spiele“: Listen mit
+ * `.match-list` → Karten (`.match-card`, optional `--past`) und Zeile Heim / Mitte / Gast
+ * (`.match-lineup`). Wurzel: `.match-list-wrap`.
+ */
+
+.match-list-wrap {
+  box-sizing: border-box;
+  inline-size: 100%;
+  max-inline-size: var(--content-width, 100%);
+  margin-inline: auto;
+  padding: 0;
+}
+
+.match-list-wrap * {
+  box-sizing: border-box;
+}
+
+.match-list-wrap .match-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--section-space-s, 1.25rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.match-list-wrap .match-list__item {
+  margin: 0;
+  padding: 0;
+}
+
+.match-list-wrap .match-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--content-gap, 0.75rem);
+  inline-size: 100%;
+  margin: 0;
+  padding-block: var(--section-space-xs, 0.75rem);
+  padding-inline: 0;
+  border: 0;
+  border-block-end: 1px solid var(--color-border, rgb(0 0 0 / 0.12));
+}
+
+.match-list-wrap .match-list__item:last-child .match-card {
+  border-block-end: 0;
+}
+
+.match-list-wrap .match-card__head {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5em 1rem;
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+}
+
+.match-list-wrap .match-card__league,
+.match-list-wrap .match-card__when {
+  margin: 0;
+  font: inherit;
+}
+
+.match-list-wrap .match-card__when time {
+  font: inherit;
+}
+
+/* Zeile: Heim | vs / Ergebnis | Auswärts */
+.match-list-wrap .match-lineup {
+  display: grid;
+  grid-template-columns: var(--grid-5, 1fr 1fr auto 1fr 1fr);
+  align-items: center;
+  inline-size: 100%;
+  max-inline-size: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: var(--h4, 1.1rem);
+  text-align: start;
+  text-transform: uppercase;
+}
+
+.match-list-wrap .match-lineup__side--home {
+  grid-column: span 2;
+}
+
+.match-list-wrap .match-lineup__side {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--content-gap, 0.75rem);
+  min-inline-size: 0;
+}
+
+.match-list-wrap .match-lineup__side--away {
+  grid-column: span 2;
+  justify-content: flex-end;
+  text-align: end;
+}
+
+.match-list-wrap .match-lineup__side--home .match-team-logo {
+  order: -1;
+}
+
+.match-list-wrap .match-lineup__name {
+  margin: 0;
+}
+
+.match-list-wrap .match-lineup__side .match-team-logo {
+  flex-shrink: 0;
+  inline-size: 4em;
+  block-size: auto;
+  max-block-size: none;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.match-list-wrap .match-lineup__center {
+  grid-column: span 1;
+  justify-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-inline-size: 2.5em;
+  text-align: center;
+}
+
+.match-list-wrap .match-lineup__center .match-lineup__vs {
+  margin: 0;
+  font-size: var(--text-lg, 1.05rem);
+  line-height: 1.2;
+}
+
+.match-list-wrap .match-lineup__canceled {
+  margin: 0;
+  font-size: var(--text-sm, 0.9rem);
+  line-height: 1.2;
+  text-align: center;
+  text-transform: none;
+  font-weight: 700;
+}
+
+.match-list-wrap .match-lineup__score {
+  margin: 0;
+  font-size: var(--text-lg, 1.05rem);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.match-list-wrap .match-lineup__score-value {
+  font-weight: 800;
+}
+
+.match-list-wrap .match-lineup__score-sep {
+  margin-inline: 0.2em;
+  opacity: 0.7;
+}
+
+@media (max-width: 992px) {
+  .match-list-wrap .match-card__head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .match-list-wrap .match-lineup__side {
+    flex-direction: column;
+  }
+
+  .match-list-wrap .match-lineup__side .match-lineup__name,
+  .match-list-wrap .match-lineup__side p {
+    text-align: center;
+  }
+
+  .match-list-wrap .match-lineup__side--home .match-team-logo {
+    order: -1;
+  }
+
+  .match-list-wrap .match-lineup__side--away {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .match-list-wrap .match-lineup__side--away .match-team-logo {
+    order: -1;
+  }
+
+  .match-list-wrap .match-lineup,
+  .match-list-wrap .match-card__head {
+    font-size: var(--text-sm, 0.9rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .match-list-wrap .match-lineup {
+    font-size: var(--h6, 0.95rem);
+  }
+}

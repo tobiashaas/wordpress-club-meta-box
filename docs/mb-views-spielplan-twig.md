@@ -23,12 +23,32 @@ Diese Seite erklärt die **logische Kette** der Spielplan-Views, die **Feld-Abh�
    - **Ohne** passenden `post` (z. B. View nur auf der Startseite): Fallback **`erste`**. Dann: **eigenes View-Duplikat** anlegen, das `team_slug` fest setzt, **oder** die Startseite anders lösen (z. B. festes zweites View pro Mannschaft).
 5. **Hero + „Weitere Spiele“ (nur `erste`):** Der View `spielplan-naechstes-spiel-hero` nutzt für die 1. Mannschaft dasselbe sortierte, zukünftige Spiel (`matches|first`) wie der Beginn der Liste. In **`spielplan-weitere-spiele`** ist `start_offset = 1`, wenn `team_slug == 'erste'`, damit **dieses** erste Spiel nicht doppelt erscheint. Andere `team_slug`-Werte beginnen die Liste bei **0** (es gibt dafür keinen Hero auf derselben Seite, oder man akzeptiert ggf. eine Überschneidung — Anpassung dann nötig).
 
+## CSS-Klassen (Spielplan) & A11y (Stand 2026)
+
+**BEM-artig** unter dem Präfix **`match-`** (Teamzeilen, Listen, Karten):
+
+| Block / Element | Kurzbeschreibung |
+|------------------|------------------|
+| `match-list-wrap` | äußerer umgebender Block für die Listen-Views |
+| `match-list` | `<ul role="list">` kommende/vergangene Spiele |
+| `match-list__item` | Zeile, enthält meist `match-card` |
+| `match-card` / `match-card--past` | Ein Spiel; `--past` bei „Letzte Spiele“ |
+| `match-card__head`, `__league`, `__when` | Kopf: Liga, Datum in `<time datetime="…">` (ISO) |
+| `match-lineup` | Dreier-Zeile Heim / Mitte / Auswärts, `role="group"` + `aria-label` |
+| `match-lineup__side--home` / `--away` | Spalte je Team, darin `match-lineup__name` + Logo |
+| `match-lineup__center` | „vs“ oder Ergebnis (`match-lineup__score`) bzw. `…__canceled` |
+| `match-team-logo` | Club-Logo (Partial), sinnvolles `alt` |
+| `match-hero-wrap` | äußerer Block um den Hero-View (Layout- und Theme-Seite) |
+| `match-hero` | Sektion „Nächstes Spiel“ mit `h2`, `match-hero__details`, ggf. `…--empty` + `role="status"` |
+
+**Theme/Child-Theme:** [`assets/css/match-hero.css`](../assets/css/match-hero.css) (nächstes Spiel), [`assets/css/match-lists.css`](../assets/css/match-lists.css) (weitere/letzte Spiele) per `wp_enqueue_style` o. ä. Optional **Screen-Reader-Only** z. B. mit `.match-sr-only` { clip / absolute / 1px } ergänzen, falls ihr kompakte sichtbare Labels wollt; im Hero sind Liga/Anstoß/Ort sichtbar beschriftet.
+
 ## Partial: `partial-club-team-logo`
 
 - **Einstieg:** in der Meta-Box-Doku heißt es `{{ include('view-slug') }}`, wobei der **Slug** dem View in WordPress entspricht.
 - **Vor** jedem `include` setzen: `{% set team_post = … %}` (Club-Post-Objekt).
 - **Optional:** `logo_max_width`, `logo_max_height`, `logo_loading`, `logo_decoding`, `logo_fetchpriority`, `logo_extra_class` – siehe Kommentar im Partial selbst.
-- **Bilder:** `medium_large`, Fallback `medium`; kein Bild, wenn keine URL (kein kaputter `img`).
+- **Bilder:** `medium_large`, Fallback `medium`; kein Bild, wenn keine URL (kein kaputter `img`). Klasse **`match-team-logo`**, `alt` aus Medien-Alt oder Fallback „Vereinslogo: {Name}“.
 
 ## „Weitere“ vs. „Letzte“ Spiele – zusammenfassen?
 
