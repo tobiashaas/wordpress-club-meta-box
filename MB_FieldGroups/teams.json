@@ -45,6 +45,19 @@
             "limit_type": "character"
         },
         {
+            "name": "fussball.de Team-ID",
+            "id": "fussball_de_team_id",
+            "type": "text",
+            "label_description": "Die Team-ID von fussball.de (letztes Segment der Team-URL). Wird für die automatische Datensynchronisation benötigt. Beispiel: 00ES8GN9DO000062VV0AG08LVUPGND5I-G",
+            "placeholder": "00ES8GN9DO000062VV0AG08LVUPGND5I-G",
+            "required": false,
+            "disabled": false,
+            "readonly": false,
+            "clone": false,
+            "clone_empty_start": false,
+            "hide_from_rest": false
+        },
+        {
             "name": "Spielplan anzeigen",
             "id": "spielplan_anzeigen",
             "type": "switch",
@@ -131,7 +144,7 @@
     "id": "teams",
     "modified": 1777147304,
     "post_types": [
-        "teams"
+        "mannschaften"
     ],
     "title": "Mannschaften"
 }
