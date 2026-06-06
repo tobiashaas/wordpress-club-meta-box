@@ -7,25 +7,27 @@
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-/** Liga-Taxonomie (im WP-Admin erweiterbar) fuer Mannschaften. */
-add_action( 'init', function () {
-	if ( taxonomy_exists( 'liga' ) ) { return; }
-	register_taxonomy( 'liga', [ 'mannschaften' ], [
-		'labels'            => [
-			'name'          => 'Ligen',
-			'singular_name' => 'Liga',
-			'all_items'     => 'Alle Ligen',
-			'add_new_item'  => 'Neue Liga hinzufügen',
-			'new_item_name' => 'Name der neuen Liga',
-			'search_items'  => 'Ligen suchen',
-			'menu_name'     => 'Ligen',
-		],
-		'public'            => true,
-		'hierarchical'      => false,
-		'show_admin_column' => true,
-		'show_in_rest'      => true,
-	] );
-}, 9 );
+/**
+ * Zentrale Liga-Liste. Beide Liga-Felder (Mannschaft 'liga' + Spielplan 'league')
+ * ziehen diese Liste automatisch (Wert == Label -> speichert lesbaren Text,
+ * Views bleiben unveraendert). Neue Liga? Einfach hier eine Zeile ergaenzen.
+ */
+function fck_cmb_ligen() {
+	return [
+		'Verbandsliga',
+		'Landesliga',
+		'Bezirksliga',
+		'Kreisliga A',
+		'Kreisliga B',
+		'Kreisliga C',
+		'Kreisklasse A',
+		'Kreisklasse B',
+		'Kreisklasse C',
+		// Bestand aus dem Spielplan (bei Bedarf bereinigen):
+		'Kreisliga B1',
+		'Freundschaftsspiel',
+	];
+}
 
 /** Basisverzeichnis mit MB_FieldGroups/ + MB_Settings_Page/ finden (Server-Bundle ODER Repo-Layout). */
 function fck_cmb_base_dir() {
@@ -42,12 +44,19 @@ function fck_cmb_base_dir() {
 	return __DIR__;
 }
 
-/** REST fuer alle Felder rekursiv aktivieren (hide_from_rest=false). */
-function fck_cmb_force_rest( array &$fields ) {
+/** REST aktivieren + Liga-Felder ('liga'/'league') zu select_advanced mit zentraler Liste machen (rekursiv). */
+function fck_cmb_process_fields( array &$fields ) {
+	$ligen = fck_cmb_ligen();
+	$opts  = array_combine( $ligen, $ligen );
 	foreach ( $fields as &$f ) {
 		$f['hide_from_rest'] = false;
+		if ( isset( $f['id'] ) && in_array( $f['id'], [ 'liga', 'league' ], true ) ) {
+			$f['type']        = 'select_advanced';
+			$f['options']     = $opts;
+			$f['placeholder'] = 'Liga wählen';
+		}
 		if ( isset( $f['fields'] ) && is_array( $f['fields'] ) ) {
-			fck_cmb_force_rest( $f['fields'] );
+			fck_cmb_process_fields( $f['fields'] );
 		}
 	}
 	unset( $f );
@@ -74,7 +83,7 @@ add_filter( 'rwmb_meta_boxes', function ( $meta_boxes ) {
 		$g = json_decode( (string) file_get_contents( $file ), true );
 		if ( ! is_array( $g ) || empty( $g['fields'] ) ) { continue; }
 		unset( $g['$schema'], $g['modified'], $g['autosave'], $g['default_hidden'], $g['exclude'] );
-		fck_cmb_force_rest( $g['fields'] );
+		fck_cmb_process_fields( $g['fields'] );
 		$meta_boxes[] = $g;
 	}
 	return $meta_boxes;

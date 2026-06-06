@@ -143,12 +143,8 @@
         {
             "name": "Liga",
             "id": "liga",
-            "type": "taxonomy",
-            "taxonomy": "liga",
-            "field_type": "select_advanced",
-            "add_new": true,
-            "remove_default": true,
-            "label_description": "Liga dieser Mannschaft. Aus der Liste wählen oder neue Liga anlegen.",
+            "type": "select_advanced",
+            "label_description": "Liga dieser Mannschaft (zentrale Liste im Plugin).",
             "hide_from_rest": false
         }
     ],
