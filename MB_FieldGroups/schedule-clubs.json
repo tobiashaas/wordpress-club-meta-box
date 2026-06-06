@@ -55,7 +55,7 @@
                 {
                     "name": "Liga",
                     "id": "league",
-                    "type": "text",
+                    "type": "select_advanced",
                     "required": true,
                     "clone": false,
                     "clone_empty_start": false,
