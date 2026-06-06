@@ -7,6 +7,26 @@
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
+/** Liga-Taxonomie (im WP-Admin erweiterbar) fuer Mannschaften. */
+add_action( 'init', function () {
+	if ( taxonomy_exists( 'liga' ) ) { return; }
+	register_taxonomy( 'liga', [ 'mannschaften' ], [
+		'labels'            => [
+			'name'          => 'Ligen',
+			'singular_name' => 'Liga',
+			'all_items'     => 'Alle Ligen',
+			'add_new_item'  => 'Neue Liga hinzufügen',
+			'new_item_name' => 'Name der neuen Liga',
+			'search_items'  => 'Ligen suchen',
+			'menu_name'     => 'Ligen',
+		],
+		'public'            => true,
+		'hierarchical'      => false,
+		'show_admin_column' => true,
+		'show_in_rest'      => true,
+	] );
+}, 9 );
+
 /** Basisverzeichnis mit MB_FieldGroups/ + MB_Settings_Page/ finden (Server-Bundle ODER Repo-Layout). */
 function fck_cmb_base_dir() {
 	$candidates = [
